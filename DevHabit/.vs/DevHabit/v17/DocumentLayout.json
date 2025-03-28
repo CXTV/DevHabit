@@ -67,8 +67,7 @@
               "RelativeToolTip": "DevHabit.Api\\WeatherForecast.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T22:43:29.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T22:43:29.937Z"
             },
             {
               "$type": "Document",
@@ -80,21 +79,19 @@
               "RelativeToolTip": "DevHabit.Api\\Controllers\\WeatherForecastController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T22:42:43.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T22:42:43.064Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DevHabit.Api",
+              "Title": "DevHabit.Api.csproj",
               "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DevHabit.Api.csproj",
               "RelativeDocumentMoniker": "DevHabit.Api\\DevHabit.Api.csproj",
               "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DevHabit.Api.csproj",
               "RelativeToolTip": "DevHabit.Api\\DevHabit.Api.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-28T22:41:09.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T22:41:09.173Z"
             },
             {
               "$type": "Document",
@@ -105,8 +102,7 @@
               "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\.editorconfig",
               "RelativeToolTip": ".editorconfig",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-28T22:41:05.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T22:41:05.173Z"
             },
             {
               "$type": "Document",
@@ -118,8 +114,7 @@
               "RelativeToolTip": "Directory.Build.props",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-03-28T22:41:00.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T22:41:00.406Z"
             },
             {
               "$type": "Document",
@@ -131,8 +126,7 @@
               "RelativeToolTip": "Directory.Packages.props",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-03-28T22:40:58.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T22:40:58.619Z"
             }
           ]
         }
