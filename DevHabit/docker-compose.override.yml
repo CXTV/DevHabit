@@ -1,0 +1,16 @@
+services:
+  devhabit.api:
+    image: ${DOCKER_REGISTRY-}devhabitapi
+    build:
+      context: .
+      dockerfile: DevHabit.Api/Dockerfile
+    ports:
+      - 5000:8080
+      - 5001:8081
+    # environment:
+    #   Seq
+    # volumes:
+    #   - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+    #   - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    #   - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    #   - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

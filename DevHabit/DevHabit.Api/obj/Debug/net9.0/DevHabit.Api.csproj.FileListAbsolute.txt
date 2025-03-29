@@ -33,3 +33,12 @@ D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\obj\Debug\net9.0\refint\DevHabit
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\obj\Debug\net9.0\DevHabit.Api.pdb
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\obj\Debug\net9.0\DevHabit.Api.genruntimeconfig.cache
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\obj\Debug\net9.0\ref\DevHabit.Api.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\obj\Debug\net9.0\DevHabit.Api.sourcelink.json
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.Api.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.Api.ProviderBuilderExtensions.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.Exporter.OpenTelemetryProtocol.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.Extensions.Hosting.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.Instrumentation.AspNetCore.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.Instrumentation.Http.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\OpenTelemetry.Instrumentation.Runtime.dll

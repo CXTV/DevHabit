@@ -57,6 +57,36 @@
               "version": "[9.0.3, )",
               "versionCentrallyManaged": true
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )",
+              "versionCentrallyManaged": true
+            },
+            "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
+              "target": "Package",
+              "version": "[1.11.2, )",
+              "versionCentrallyManaged": true
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.11.2, )",
+              "versionCentrallyManaged": true
+            },
+            "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.11.1, )",
+              "versionCentrallyManaged": true
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.11.1, )",
+              "versionCentrallyManaged": true
+            },
+            "OpenTelemetry.Instrumentation.Runtime": {
+              "target": "Package",
+              "version": "[1.11.1, )",
+              "versionCentrallyManaged": true
+            },
             "SonarAnalyzer.CSharp": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -67,6 +97,12 @@
           },
           "centralPackageVersions": {
             "Microsoft.AspNetCore.OpenApi": "9.0.3",
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+            "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.11.2",
+            "OpenTelemetry.Extensions.Hosting": "1.11.2",
+            "OpenTelemetry.Instrumentation.AspNetCore": "1.11.1",
+            "OpenTelemetry.Instrumentation.Http": "1.11.1",
+            "OpenTelemetry.Instrumentation.Runtime": "1.11.1",
             "SonarAnalyzer.CSharp": "10.7.0.110445"
           },
           "imports": [
