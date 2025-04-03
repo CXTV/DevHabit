@@ -1,10 +1,5 @@
-﻿using System.Collections.Generic;
-using Bogus;
-using Bogus.DataSets;
-using DevHabit.Api.DTOs.Habits;
+﻿using Bogus;
 using DevHabit.Api.Entities;
-using Microsoft.EntityFrameworkCore;
-using OpenTelemetry.Trace;
 
 namespace DevHabit.Api.Database.Configurations;
 
@@ -47,11 +42,6 @@ public sealed class HabitsSeed
                 .RuleFor(h => h.LastCompletedAtUtc, (f, h) => h.UpdatedAtUtc?.AddDays(f.Random.Int(1, 5)))
                 .RuleFor(h => h.EndDate, f => f.Date.FutureDateOnly(f.Random.Int(15,30)));
 
-
-
-            //.RuleFor(h => h.UpdatedAtUtc, f => f.Date.Recent(10).ToUniversalTime()) 
-            //.RuleFor(h => h.LastCompletedAtUtc, f => f.Date.Recent(5).ToUniversalTime()) 
-            //.RuleFor(h => h.EndDate, f => f.Date.FutureDateOnly(1));
 
             List < Habit> allSeeds =  habitFaker.Generate(10);
             context.Habits.AddRange(allSeeds);
