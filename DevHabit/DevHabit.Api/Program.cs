@@ -1,5 +1,4 @@
 using DevHabit.Api.Database;
-using DevHabit.Api.Database.Configurations;
 using DevHabit.Api.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
