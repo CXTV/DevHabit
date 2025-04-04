@@ -1,6 +1,7 @@
 using DevHabit.Api.Database;
 using DevHabit.Api.DTOs.Tags;
 using DevHabit.Api.Extensions;
+using DevHabit.Api.Middleware;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -31,9 +32,9 @@ builder.Services.AddProblemDetails(options =>
     };
 });
 
-
-//builder.Services.AddExceptionHandler<ValidationExceptionHandler>();
-
+//全局异常处理中间件服务注册
+builder.Services.AddExceptionHandler<ValidationExceptionHandler>();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddOpenApi();
 
@@ -72,6 +73,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//异常处理中间件注册
+app.UseExceptionHandler();
+
 
 app.MapControllers();
 
