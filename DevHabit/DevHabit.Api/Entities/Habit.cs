@@ -15,6 +15,9 @@ public  sealed class Habit
     public DateTime CreatedAtUtc { get; set; }
     public DateTime? UpdatedAtUtc { get; set; }
     public DateTime? LastCompletedAtUtc { get; set; }
+
+    public List<HabitTag> HabitTags { get; set; }  //建立Habit和Tag之间的联系，通过中间表HabitTag
+    public List<Tag> Tags { get; set; } //一个habit拥有多个标签
 }
 
 public enum HabitType

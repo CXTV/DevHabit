@@ -1,4 +1,5 @@
-﻿using DevHabit.Api.Database;
+﻿using System.Linq.Expressions;
+using DevHabit.Api.Database;
 using DevHabit.Api.DTOs.Habits;
 using DevHabit.Api.Entities;
 using Microsoft.AspNetCore.JsonPatch;
@@ -14,47 +15,6 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
     [HttpGet]
     public async Task<ActionResult<HabitsCollectionDto>> GetHabits()
     {
-        //List<Habit> habits = await dbContext.Habits.ToListAsync();
-        //return Ok(habits);
-        //List<HabitDto> habits = await dbContext
-        //    .Habits
-        //    .Select(habit => new HabitDto
-        //    {
-        //        Id = habit.Id,
-        //        Name = habit.Name,
-        //        Description = habit.Description,
-        //        Type = habit.Type,
-        //        Frequency = new FrequencyDto
-        //        {
-        //            Type = habit.Frequency.Type,
-        //            TimesPerPeriod = habit.Frequency.TimesPerPeriod
-        //        },
-        //        Target = new TargetDto
-        //        {
-        //            Value = habit.Target.Value,
-        //            Unit = habit.Target.Unit
-        //        },
-        //        Status = habit.Status,
-        //        IsArchived = habit.IsArchived,
-        //        EndDate = habit.EndDate,
-        //        Milestone = habit.Milestone == null
-        //            ? null
-        //            : new MilestoneDto
-        //            {
-        //                Target = habit.Milestone.Target,
-        //                Current = habit.Milestone.Current
-        //            },
-        //        CreatedAtUtc = habit.CreatedAtUtc,
-        //        UpdatedAtUtc = habit.UpdatedAtUtc,
-        //        LastCompletedAtUtc = habit.LastCompletedAtUtc
-        //    })
-        //    .ToListAsync();
-
-
-        //var habitsCollectionDto = new HabitsCollectionDto
-        //{
-        //    Data = habits
-        //};
 
         //return Ok(habitsCollectionDto);
         List<HabitDto> habits = await dbContext
@@ -68,17 +28,43 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
         };
 
         return Ok(habitsCollectionDto);
-
-
     }
 
+
+    //[HttpGet("{id}")]
+    //public async Task<ActionResult<HabitDto?>> GetHabit(string id)
+    //{
+    //    //HabitDto? habit = await dbContext
+    //    //    .Habits
+    //    //    .Where(h => h.Id == id)
+    //    //    .Select(HabitQueries.ProjectToDto())
+    //    //    .FirstOrDefaultAsync();
+
+    //    //if (habit is null)
+    //    //{
+    //    //    return NotFound();
+    //    //}
+
+    //    //return Ok(habit);
+    //    Habit habitEntity = await dbContext.Habits.FindAsync(id);
+
+    //    if (habitEntity is null)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    HabitDto habitDto = habitEntity.ToDto(); // 这里用扩展方法转换
+    //    return Ok(habitDto);
+    //}
+
     [HttpGet("{id}")]
-    public async Task<ActionResult<HabitDto?>> GetHabit(string id)
+    public async Task<ActionResult<HabitWithTagsDto>> GetHabit(string id)
     {
-        HabitDto? habit = await dbContext
+
+        HabitWithTagsDto? habit = await dbContext
             .Habits
             .Where(h => h.Id == id)
-            .Select(HabitQueries.ProjectToDto())
+            .Select(HabitQueries.ProjectToDtoWithTags())
             .FirstOrDefaultAsync();
 
         if (habit is null)
@@ -86,8 +72,11 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
             return NotFound();
         }
 
+
         return Ok(habit);
+
     }
+
 
 
     [HttpPost]

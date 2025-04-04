@@ -3,40 +3,16 @@
   "WorkspaceRootPath": "D:\\Csharp20241101\\day0329\\DevHabit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Migrations\\Application\\20250403211937_add_tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DevHabit.Api\\Migrations\\Application\\20250403211937_add_tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\controllers\\habitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\controllers\\habitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\database\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\database\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\controllers\\habittagscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\controllers\\habittagscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\tags\\tagmappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\tags\\tagmappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\tags\\tagqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\tags\\tagqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\tags\\tagdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\tags\\tagdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\tags\\updatetagdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\tags\\updatetagdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\tags\\createtagdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\tags\\createtagdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\database\\configurations\\tagconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\database\\configurations\\tagconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\database\\configurations\\habitsseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\database\\configurations\\habitsseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\habits\\habitqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\habits\\habitqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,119 +30,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250403211937_add_tags.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Migrations\\Application\\20250403211937_add_tags.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Migrations\\Application\\20250403211937_add_tags.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Migrations\\Application\\20250403211937_add_tags.cs",
-              "RelativeToolTip": "DevHabit.Api\\Migrations\\Application\\20250403211937_add_tags.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAA0wBAAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "HabitQueries.cs",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitQueries.cs",
+              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Habits\\HabitQueries.cs",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitQueries.cs",
+              "RelativeToolTip": "DevHabit.Api\\DTOs\\Habits\\HabitQueries.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:19:37.414Z",
+              "WhenOpened": "2025-04-04T07:24:59.874Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Database\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Database\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Database\\ApplicationDbContext.cs",
-              "RelativeToolTip": "DevHabit.Api\\Database\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Title": "HabitTagsController.cs",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Controllers\\HabitTagsController.cs",
+              "RelativeDocumentMoniker": "DevHabit.Api\\Controllers\\HabitTagsController.cs",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Controllers\\HabitTagsController.cs",
+              "RelativeToolTip": "DevHabit.Api\\Controllers\\HabitTagsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:17:52.372Z",
+              "WhenOpened": "2025-04-04T06:05:54.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TagMappings.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\TagMappings.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Tags\\TagMappings.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\TagMappings.cs",
-              "RelativeToolTip": "DevHabit.Api\\DTOs\\Tags\\TagMappings.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACQAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "HabitsController.cs",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Controllers\\HabitsController.cs",
+              "RelativeDocumentMoniker": "DevHabit.Api\\Controllers\\HabitsController.cs",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Controllers\\HabitsController.cs",
+              "RelativeToolTip": "DevHabit.Api\\Controllers\\HabitsController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAmwEsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:14:17.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateTagDto.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\UpdateTagDto.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Tags\\UpdateTagDto.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\UpdateTagDto.cs",
-              "RelativeToolTip": "DevHabit.Api\\DTOs\\Tags\\UpdateTagDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:13:57.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateTagDto.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\CreateTagDto.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Tags\\CreateTagDto.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\CreateTagDto.cs",
-              "RelativeToolTip": "DevHabit.Api\\DTOs\\Tags\\CreateTagDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:13:26.364Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TagDto.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\TagDto.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Tags\\TagDto.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\TagDto.cs",
-              "RelativeToolTip": "DevHabit.Api\\DTOs\\Tags\\TagDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:11:25.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TagQueries.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\TagQueries.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Tags\\TagQueries.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Tags\\TagQueries.cs",
-              "RelativeToolTip": "DevHabit.Api\\DTOs\\Tags\\TagQueries.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:10:46.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TagConfiguration.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Database\\Configurations\\TagConfiguration.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Database\\Configurations\\TagConfiguration.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Database\\Configurations\\TagConfiguration.cs",
-              "RelativeToolTip": "DevHabit.Api\\Database\\Configurations\\TagConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:01:56.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "HabitsSeed.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Database\\Configurations\\HabitsSeed.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Database\\Configurations\\HabitsSeed.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Database\\Configurations\\HabitsSeed.cs",
-              "RelativeToolTip": "DevHabit.Api\\Database\\Configurations\\HabitsSeed.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:01:51.93Z",
+              "WhenOpened": "2025-04-04T06:05:53.381Z",
               "EditorCaption": ""
             }
           ]
