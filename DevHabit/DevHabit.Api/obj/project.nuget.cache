@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Jo6ISbsKTu4=",
+  "dgSpecHash": "Es4quM4ewIs=",
   "success": true,
   "projectFilePath": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DevHabit.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HFY\\.nuget\\packages\\bogus\\35.6.2\\bogus.35.6.2.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\efcore.namingconventions\\9.0.0\\efcore.namingconventions.9.0.0.nupkg.sha512",
+    "C:\\Users\\HFY\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
+    "C:\\Users\\HFY\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\9.0.3\\microsoft.aspnetcore.jsonpatch.9.0.3.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\9.0.3\\microsoft.aspnetcore.mvc.newtonsoftjson.9.0.3.nupkg.sha512",

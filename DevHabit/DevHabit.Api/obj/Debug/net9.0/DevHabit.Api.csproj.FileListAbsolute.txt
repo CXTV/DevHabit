@@ -146,3 +146,5 @@ D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.AspNe
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\FluentValidation.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
