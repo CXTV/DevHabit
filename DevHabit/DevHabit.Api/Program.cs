@@ -19,7 +19,17 @@ builder.Services.AddControllers(options =>
     .AddNewtonsoftJson()
     .AddXmlSerializerFormatters();
 
+//×¢²ávalidator
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
+//ÅäÖÃProblemDetails
+builder.Services.AddProblemDetails(options =>
+{
+    options.CustomizeProblemDetails = context =>
+    {
+        context.ProblemDetails.Extensions.TryAdd("requestId", context.HttpContext.TraceIdentifier);
+    };
+});
 
 
 //builder.Services.AddExceptionHandler<ValidationExceptionHandler>();
