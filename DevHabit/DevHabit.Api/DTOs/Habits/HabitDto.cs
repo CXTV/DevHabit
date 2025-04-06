@@ -1,13 +1,10 @@
 ﻿using DevHabit.Api.Entities;
 
+
 namespace DevHabit.Api.DTOs.Habits;
 
 //Request/Response
 //CreateRequest/Response
-public sealed record HabitsCollectionDto
-{
-    public List<HabitDto> Data { get; init; }
-}
 
 public sealed record HabitDto
 {
