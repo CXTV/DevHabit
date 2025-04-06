@@ -135,6 +135,11 @@
               "target": "Package",
               "version": "[10.7.0.110445, )",
               "versionCentrallyManaged": true
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.6.0.2, )",
+              "versionCentrallyManaged": true
             }
           },
           "centralPackageVersions": {
@@ -154,7 +159,8 @@
             "OpenTelemetry.Instrumentation.AspNetCore": "1.11.1",
             "OpenTelemetry.Instrumentation.Http": "1.11.1",
             "OpenTelemetry.Instrumentation.Runtime": "1.11.1",
-            "SonarAnalyzer.CSharp": "10.7.0.110445"
+            "SonarAnalyzer.CSharp": "10.7.0.110445",
+            "System.Linq.Dynamic.Core": "1.6.0.2"
           },
           "imports": [
             "net461",

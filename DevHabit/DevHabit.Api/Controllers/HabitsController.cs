@@ -1,7 +1,7 @@
-﻿using System.Linq.Expressions;
-using DevHabit.Api.Database;
+﻿using DevHabit.Api.Database;
 using DevHabit.Api.DTOs.Habits;
 using DevHabit.Api.Entities;
+using DevHabit.Api.Services.Sorting;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,31 +12,43 @@ namespace DevHabit.Api.Controllers;
 [Route("habits")]
 public sealed class HabitsController(ApplicationDbContext dbContext):ControllerBase
 {
-
-
     [HttpGet]
-    public async Task<ActionResult<HabitsCollectionDto>> GetHabits([FromQuery] HabitsQueryParameters query)
+    public async Task<ActionResult<HabitsCollectionDto>> GetHabits(
+        [FromQuery] HabitsQueryParameters query,
+        SortMappingProvider sortMappingProvider)
     {
+        //判断Sort参数是否合法
+        if (!sortMappingProvider.ValidateMappings<HabitDto, Habit>(query.Sort))
+        {
+            return Problem(
+                statusCode: StatusCodes.Status400BadRequest,
+                detail: $"The provided sort parameter isn't valid: '{query.Sort}'");
+        }
 
         query.Search = query.Search?.Trim().ToLower();
 
+        SortMapping[] sortMappings = sortMappingProvider.GetMappings<HabitDto, Habit>();
+
         //return Ok(habitsCollectionDto);
         List<HabitDto> habits = await dbContext
-            .Habits
-            .Where(h=> query.Search == null ||
-                       h.Name.ToLower().Contains(query.Search) ||
-                       h.Description != null && h.Description.ToLower().Contains(query.Search))
-            .Where(h=> query.Type == null || h.Type == query.Type)
-            .Where(h=>query.Status==null || h.Status == query.Status)
-            .Select(HabitQueries.ProjectToDto())
-            .ToListAsync();
+                .Habits
+                //只能通过Name和Description进行模糊查询
+                .Where(h=> query.Search == null ||
+                           h.Name.ToLower().Contains(query.Search) ||
+                           h.Description != null && h.Description.ToLower().Contains(query.Search))
+                .Where(h=> query.Type == null || h.Type == query.Type)
+                .Where(h=>query.Status==null || h.Status == query.Status)
+                //动态排序
+                .ApplySort(query.Sort, sortMappings)
+                .Select(HabitQueries.ProjectToDto())
+                .ToListAsync();
 
-        var habitsCollectionDto = new HabitsCollectionDto
-        {
-            Data = habits
-        };
+            var habitsCollectionDto = new HabitsCollectionDto
+            {
+                Data = habits
+            };
 
-        return Ok(habitsCollectionDto);
+            return Ok(habitsCollectionDto);
     }
 
 

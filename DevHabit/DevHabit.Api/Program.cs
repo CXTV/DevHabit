@@ -1,7 +1,10 @@
 using DevHabit.Api.Database;
+using DevHabit.Api.DTOs.Habits;
 using DevHabit.Api.DTOs.Tags;
+using DevHabit.Api.Entities;
 using DevHabit.Api.Extensions;
 using DevHabit.Api.Middleware;
+using DevHabit.Api.Services.Sorting;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -38,6 +41,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddOpenApi();
 
+//数据库上下文服务注册
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options
         .UseNpgsql(
@@ -46,6 +50,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Application))
         .UseSnakeCaseNamingConvention());
 
+//Aspire服务注册
 builder.Services.AddOpenTelemetry()
     .ConfigureResource(resource => resource.AddService(builder.Environment.ApplicationName))
     .WithTracing(tracing => tracing
@@ -58,11 +63,20 @@ builder.Services.AddOpenTelemetry()
         .AddRuntimeInstrumentation())
     .UseOtlpExporter();
 
+//日志服务注册
 builder.Logging.AddOpenTelemetry(options =>
 {
     options.IncludeScopes = true;
     options.IncludeFormattedMessage = true;
 });
+
+
+//注册SortMappingProvider
+builder.Services.AddTransient<SortMappingProvider>();
+//排序服务注册只有Habit
+builder.Services.AddSingleton<ISortMappingDefinition, SortMappingDefinition<HabitDto, Habit>>(_ =>
+    HabitMappings.SortMapping);
+
 
 WebApplication app = builder.Build();
 
