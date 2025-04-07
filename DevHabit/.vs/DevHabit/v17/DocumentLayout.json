@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "D:\\Csharp20241101\\day0329\\DevHabit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\habits\\habitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\habits\\habitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\controllers\\habitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\controllers\\habitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\habits\\habitmappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\habits\\habitmappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\controllers\\habitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\controllers\\habitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\services\\linkservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\services\\linkservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\services\\datashapingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\services\\datashapingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\common\\linkdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\common\\linkdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\habits\\habitsqueryparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\habits\\habitsqueryparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dtos\\habits\\habitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dtos\\habits\\habitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +30,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataShapingService.cs",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Services\\DataShapingService.cs",
+              "RelativeDocumentMoniker": "DevHabit.Api\\Services\\DataShapingService.cs",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Services\\DataShapingService.cs",
+              "RelativeToolTip": "DevHabit.Api\\Services\\DataShapingService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T08:51:35.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HabitsQueryParameters.cs",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitsQueryParameters.cs",
+              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Habits\\HabitsQueryParameters.cs",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitsQueryParameters.cs",
+              "RelativeToolTip": "DevHabit.Api\\DTOs\\Habits\\HabitsQueryParameters.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T08:43:45.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HabitDto.cs",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
+              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
+              "RelativeToolTip": "DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T08:43:39.494Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -52,87 +83,22 @@
               "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Habits\\HabitMappings.cs",
               "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitMappings.cs",
               "RelativeToolTip": "DevHabit.Api\\DTOs\\Habits\\HabitMappings.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAABCwCcAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAABMAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:55:57.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DataShapingService.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Services\\DataShapingService.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Services\\DataShapingService.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Services\\DataShapingService.cs",
-              "RelativeToolTip": "DevHabit.Api\\Services\\DataShapingService.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAA7wFgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:45:06.037Z",
+              "WhenOpened": "2025-04-07T08:43:39Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HabitDto.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
-              "RelativeToolTip": "DevHabit.Api\\DTOs\\Habits\\HabitDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:36:39.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Program.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Program.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Program.cs",
-              "RelativeToolTip": "DevHabit.Api\\Program.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:16:35.534Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LinkServices.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Services\\LinkServices.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Services\\LinkServices.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Services\\LinkServices.cs",
-              "RelativeToolTip": "DevHabit.Api\\Services\\LinkServices.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:15:42.285Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "HabitsController.cs",
               "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Controllers\\HabitsController.cs",
               "RelativeDocumentMoniker": "DevHabit.Api\\Controllers\\HabitsController.cs",
               "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Controllers\\HabitsController.cs",
               "RelativeToolTip": "DevHabit.Api\\Controllers\\HabitsController.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAAAJ8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAA5wGsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:13:02.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LinkDto.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Common\\LinkDto.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DTOs\\Common\\LinkDto.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DTOs\\Common\\LinkDto.cs",
-              "RelativeToolTip": "DevHabit.Api\\DTOs\\Common\\LinkDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:12:40.542Z",
+              "WhenOpened": "2025-04-07T08:28:50.976Z",
               "EditorCaption": ""
             }
           ]

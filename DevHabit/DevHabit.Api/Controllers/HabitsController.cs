@@ -105,8 +105,7 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
                 statusCode: StatusCodes.Status400BadRequest,
                 detail: $"The provided data shaping fields aren't valid: '{fields}'");
         }
-
-
+        
         HabitWithTagsDto? habit = await dbContext
             .Habits
             .Where(h => h.Id == id)
@@ -120,7 +119,12 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
 
         ExpandoObject shapedHabitDto = dataShapingService.ShapeData(habit, fields);
 
-        LinkDto[] links = CreateLinksForHabit(id);
+        LinkDto[] links =
+        [
+            linkService.Create(nameof(GetHabit), "self", HttpMethods.Get, new { id,fields}),
+            linkService.Create(nameof(UpdateHabit), "update", HttpMethods.Put, new { id }),
+            linkService.Create(nameof(PatchHabit), "patch", HttpMethods.Patch, new { id }),
+        ];
 
         shapedHabitDto.TryAdd("links", links);
 
@@ -128,7 +132,6 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
         return Ok(shapedHabitDto);
 
     }
-
 
 
     [HttpPost]
@@ -210,17 +213,5 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
 
         return NoContent();
     }
-
-    private LinkDto[] CreateLinksForHabit(string id)
-    {
-        LinkDto[] links =
-        [
-            linkService.Create(nameof(GetHabit), "self", HttpMethods.Get, new { id }),
-            linkService.Create(nameof(UpdateHabit), "update", HttpMethods.Put, new { id }),
-            linkService.Create(nameof(PatchHabit), "patch", HttpMethods.Patch, new { id }),
-        ];
-        return links;
-    }
-
 
 }
