@@ -83,6 +83,11 @@ builder.Services.AddSingleton<ISortMappingDefinition, SortMappingDefinition<Habi
 //注册数据整形服务
 builder.Services.AddTransient<DataShapingService>();
 
+//注册httpContextAccessor
+builder.Services.AddHttpContextAccessor();
+
+//注册链接服务
+builder.Services.AddTransient<LinkService>();
 
 
 WebApplication app = builder.Build();

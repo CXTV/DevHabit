@@ -5,6 +5,7 @@ using DevHabit.Api.DTOs.Habits;
 using DevHabit.Api.Entities;
 using DevHabit.Api.Services;
 using DevHabit.Api.Services.Sorting;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,7 @@ namespace DevHabit.Api.Controllers;
 
 [ApiController]
 [Route("habits")]
-public sealed class HabitsController(ApplicationDbContext dbContext):ControllerBase
+public sealed class HabitsController(ApplicationDbContext dbContext, LinkService linkService) :ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<HabitsCollectionDto>> GetHabits(
@@ -39,8 +40,11 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
         }
 
 
+
+
         query.Search = query.Search?.Trim().ToLower();
 
+        //获取SORT Dto和Entity的映射关系
         SortMapping[] sortMappings = sortMappingProvider.GetMappings<HabitDto, Habit>();
 
         //return Ok(habitsCollectionDto);未使用分页
@@ -57,6 +61,7 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
         //        .Select(HabitQueries.ProjectToDto())
         //        .ToListAsync();
 
+
         IQueryable<HabitDto> habitsQuery = dbContext
             .Habits
             .Where(h => query.Search == null ||
@@ -67,13 +72,6 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
             .ApplySort(query.Sort, sortMappings)
             .Select(HabitQueries.ProjectToDto());
 
-
-        //未使用Data shaping的分页
-        //var paginationResult = await PaginationResult<HabitDto>.CreateAsync(
-        //    habitsQuery,
-        //    query.Page,
-        //    query.PageSize
-        //);
 
         int totalCount = await habitsQuery.CountAsync();
 
@@ -93,35 +91,21 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
         return Ok(paginationResult);
     }
 
-    //[HttpGet("{id}")]
-    //public async Task<ActionResult<HabitDto?>> GetHabit(string id)
-    //{
-    //    //HabitDto? habit = await dbContext
-    //    //    .Habits
-    //    //    .Where(h => h.Id == id)
-    //    //    .Select(HabitQueries.ProjectToDto())
-    //    //    .FirstOrDefaultAsync();
-
-    //    //if (habit is null)
-    //    //{
-    //    //    return NotFound();
-    //    //}
-
-    //    //return Ok(habit);
-    //    Habit habitEntity = await dbContext.Habits.FindAsync(id);
-
-    //    if (habitEntity is null)
-    //    {
-    //        return NotFound();
-    //    }
-
-    //    HabitDto habitDto = habitEntity.ToDto(); // 这里用扩展方法转换
-    //    return Ok(habitDto);
-    //}
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<HabitWithTagsDto>> GetHabit(string id)
+    public async Task<ActionResult<HabitWithTagsDto>> GetHabit(
+        string id,
+        string? fields,
+        DataShapingService dataShapingService)
     {
+
+        if (!dataShapingService.Validate<HabitWithTagsDto>(fields))
+        {
+            return Problem(
+                statusCode: StatusCodes.Status400BadRequest,
+                detail: $"The provided data shaping fields aren't valid: '{fields}'");
+        }
+
 
         HabitWithTagsDto? habit = await dbContext
             .Habits
@@ -134,8 +118,14 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
             return NotFound();
         }
 
+        ExpandoObject shapedHabitDto = dataShapingService.ShapeData(habit, fields);
 
-        return Ok(habit);
+        LinkDto[] links = CreateLinksForHabit(id);
+
+        shapedHabitDto.TryAdd("links", links);
+
+
+        return Ok(shapedHabitDto);
 
     }
 
@@ -220,4 +210,17 @@ public sealed class HabitsController(ApplicationDbContext dbContext):ControllerB
 
         return NoContent();
     }
+
+    private LinkDto[] CreateLinksForHabit(string id)
+    {
+        LinkDto[] links =
+        [
+            linkService.Create(nameof(GetHabit), "self", HttpMethods.Get, new { id }),
+            linkService.Create(nameof(UpdateHabit), "update", HttpMethods.Put, new { id }),
+            linkService.Create(nameof(PatchHabit), "patch", HttpMethods.Patch, new { id }),
+        ];
+        return links;
+    }
+
+
 }
