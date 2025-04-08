@@ -1,4 +1,5 @@
-﻿using DevHabit.Api.Database;
+﻿using Asp.Versioning;
+using DevHabit.Api.Database;
 using DevHabit.Api.DTOs.HabitTags;
 using DevHabit.Api.Entities;
 using Microsoft.AspNetCore.Mvc;

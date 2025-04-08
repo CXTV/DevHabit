@@ -5,6 +5,7 @@
 	  <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="Asp.Versioning.Mvc" />
 		<PackageReference Include="Bogus" />
 		<PackageReference Include="EFCore.NamingConventions" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />

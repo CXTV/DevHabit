@@ -52,6 +52,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Asp.Versioning.Mvc": {
+              "target": "Package",
+              "version": "[8.1.0, )",
+              "versionCentrallyManaged": true
+            },
             "Bogus": {
               "target": "Package",
               "version": "[35.6.2, )",
@@ -143,6 +148,7 @@
             }
           },
           "centralPackageVersions": {
+            "Asp.Versioning.Mvc": "8.1.0",
             "Bogus": "35.6.2",
             "EFCore.NamingConventions": "9.0.0",
             "FluentValidation.DependencyInjectionExtensions": "11.11.0",

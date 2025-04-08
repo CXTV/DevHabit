@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using DevHabit.Api.Database;
 using DevHabit.Api.DTOs.Habits;
 using DevHabit.Api.DTOs.Tags;
@@ -36,6 +37,20 @@ builder.Services.Configure<MvcOptions>(options =>
         .First();
     formatter.SupportedMediaTypes.Add(CustomMediaTypeNames.Application.HateoasJson);
 });
+
+//api Versioning
+builder.Services
+    .AddApiVersioning(
+        options =>
+        {
+            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.ReportApiVersions = true;
+            options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options);
+            options.ApiVersionReader = new UrlSegmentApiVersionReader();
+        }
+        )
+    .AddMvc();
 
 
 //×¢²ávalidator
