@@ -7,6 +7,8 @@ using DevHabit.Api.Middleware;
 using DevHabit.Api.Services;
 using DevHabit.Api.Services.Sorting;
 using FluentValidation;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Newtonsoft.Json.Serialization;
@@ -25,6 +27,16 @@ builder.Services.AddControllers(options =>
     .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver =
         new CamelCasePropertyNamesContractResolver())
     .AddXmlSerializerFormatters();
+
+//×Ô¶¨Òåcustom media type
+builder.Services.Configure<MvcOptions>(options =>
+{
+    NewtonsoftJsonOutputFormatter formatter = options.OutputFormatters
+        .OfType<NewtonsoftJsonOutputFormatter>()
+        .First();
+    formatter.SupportedMediaTypes.Add(CustomMediaTypeNames.Application.HateoasJson);
+});
+
 
 //×¢²ávalidator
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();

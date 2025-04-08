@@ -7,7 +7,7 @@ namespace DevHabit.Api.DTOs.Habits;
 //Request/Response
 //CreateRequest/Response
 
-public sealed record HabitDto
+public sealed record HabitDto: ILinksResponse
 {
     public required string Id { get; init; }
     public required string Name { get; init; }

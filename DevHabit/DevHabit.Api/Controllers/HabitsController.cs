@@ -1,4 +1,5 @@
 ﻿using System.Dynamic;
+using System.Net.Mime;
 using DevHabit.Api.Database;
 using DevHabit.Api.DTOs.Common;
 using DevHabit.Api.DTOs.Habits;
@@ -40,8 +41,6 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
         }
 
 
-
-
         query.Search = query.Search?.Trim().ToLower();
 
         //获取SORT Dto和Entity的映射关系
@@ -80,16 +79,30 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
             .Take(query.PageSize)
             .ToListAsync();
 
+
+        //判断是否需要返回链接
+        bool includeLinks = query.Accept == CustomMediaTypeNames.Application.HateoasJson;
+
         var paginationResult = new PaginationResult<ExpandoObject>
         {
             Items = dataShapingService.ShapeCollectionData(
                 habits, 
                 query.Fields,
-     h =>CreateLinksForHabit(h.Id, query.Fields)),
+                includeLinks? h => CreateLinksForHabit(h.Id, query.Fields):null),
             Page = query.Page,
             PageSize = query.PageSize,
             TotalCount = totalCount
         };
+        
+        //有就返回带link的分页结果
+        if (includeLinks)
+        {
+            //创建Link
+            paginationResult.Links = CreateLinksForHabits(
+                query,
+                paginationResult.HasNextPage,
+                paginationResult.HasPreviousPage);
+        }
 
         return Ok(paginationResult);
     }
@@ -99,6 +112,8 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
     public async Task<ActionResult<HabitWithTagsDto>> GetHabit(
         string id,
         string? fields,
+        [FromHeader(Name = "Accept")]
+        string? accept,
         DataShapingService dataShapingService)
     {
 
@@ -122,11 +137,13 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
 
         ExpandoObject shapedHabitDto = dataShapingService.ShapeData(habit, fields);
 
-        List<LinkDto> links = CreateLinksForHabit(id, fields);
+        //判断是否需要返回链接
+        if (accept == CustomMediaTypeNames.Application.HateoasJson)
+        {
+            List<LinkDto> links = CreateLinksForHabit(id, fields);
 
-        shapedHabitDto.TryAdd("links", links);
-
-
+            shapedHabitDto.TryAdd("links", links);
+        }
         return Ok(shapedHabitDto);
 
     }
@@ -217,17 +234,76 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
 
 
 
+    //添加带page的链接
+    private List<LinkDto> CreateLinksForHabits(
+        HabitsQueryParameters parameters,
+        bool hasNextPage,
+        bool hasPreviousPage)
+    {
+        List<LinkDto> links =
+        [
+            linkService.Create(nameof(GetHabits), "self", HttpMethods.Get, new
+            {
+                page = parameters.Page,
+                pageSize = parameters.PageSize,
+                fields = parameters.Fields,
+                q = parameters.Search,
+                sort = parameters.Sort,
+                type = parameters.Type,
+                status = parameters.Status
+            }),
+            linkService.Create(nameof(CreateHabit), "create", HttpMethods.Post)
+        ];
+
+        if (hasNextPage)
+        {
+            links.Add(linkService.Create(nameof(GetHabits), "next-page", HttpMethods.Get, new
+            {
+                page = parameters.Page + 1,
+                pageSize = parameters.PageSize,
+                fields = parameters.Fields,
+                q = parameters.Search,
+                sort = parameters.Sort,
+                type = parameters.Type,
+                status = parameters.Status
+            }));
+        }
+
+        if (hasPreviousPage)
+        {
+            links.Add(linkService.Create(nameof(GetHabits), "previous-page", HttpMethods.Get, new
+            {
+                page = parameters.Page - 1,
+                pageSize = parameters.PageSize,
+                fields = parameters.Fields,
+                q = parameters.Search,
+                sort = parameters.Sort,
+                type = parameters.Type,
+                status = parameters.Status
+            }));
+        }
+
+        return links;
+    }
+
+
     private List<LinkDto> CreateLinksForHabit(string id, string? fields)
     {
         List<LinkDto> links =
         [
-            linkService.Create(nameof(GetHabit), "self", HttpMethods.Get, new { id,fields}),
+            linkService.Create(nameof(GetHabit), "self", HttpMethods.Get, new { id, fields }),
             linkService.Create(nameof(UpdateHabit), "update", HttpMethods.Put, new { id }),
-            linkService.Create(nameof(PatchHabit), "patch", HttpMethods.Patch, new { id }),
+            linkService.Create(nameof(PatchHabit), "partial-update", HttpMethods.Patch, new { id }),
+            linkService.Create(nameof(DeleteHabit), "delete", HttpMethods.Delete, new { id }),
+            linkService.Create(
+                nameof(HabitTagsController.UpsertHabitTags),
+                "upsert-tags",
+                HttpMethods.Put,
+                new { habitId = id },
+                HabitTagsController.Name)
         ];
         return links;
     }
-
 }
 
 
