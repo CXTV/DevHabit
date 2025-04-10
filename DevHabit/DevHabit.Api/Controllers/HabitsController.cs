@@ -16,9 +16,7 @@ namespace DevHabit.Api.Controllers;
 
 [ApiController]
 [Route("habits")]
-[Route("v{version:apiVersion}/habits")]
 [ApiVersion(1.0)]
-[ApiVersion(2.0)]
 public sealed class HabitsController(ApplicationDbContext dbContext, LinkService linkService) :ControllerBase
 {
     [HttpGet]
@@ -152,7 +150,6 @@ public sealed class HabitsController(ApplicationDbContext dbContext, LinkService
         return Ok(shapedHabitDto);
 
     }
-
 
 
     [HttpGet("{id}")]

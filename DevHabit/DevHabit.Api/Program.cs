@@ -35,7 +35,12 @@ builder.Services.Configure<MvcOptions>(options =>
     NewtonsoftJsonOutputFormatter formatter = options.OutputFormatters
         .OfType<NewtonsoftJsonOutputFormatter>()
         .First();
+
+    formatter.SupportedMediaTypes.Add(CustomMediaTypeNames.Application.JsonV1);
+    formatter.SupportedMediaTypes.Add(CustomMediaTypeNames.Application.JsonV2);
     formatter.SupportedMediaTypes.Add(CustomMediaTypeNames.Application.HateoasJson);
+    formatter.SupportedMediaTypes.Add(CustomMediaTypeNames.Application.HateoasJsonV1);
+    formatter.SupportedMediaTypes.Add(CustomMediaTypeNames.Application.HateoasJsonV2);
 });
 
 //api Versioning
@@ -47,7 +52,14 @@ builder.Services
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.ReportApiVersions = true;
             options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options);
-            options.ApiVersionReader = new UrlSegmentApiVersionReader();
+            //options.ApiVersionReader = new UrlSegmentApiVersionReader();
+
+            //添加自定义的hateoas
+            options.ApiVersionReader = ApiVersionReader.Combine(
+                new MediaTypeApiVersionReader(),
+                new MediaTypeApiVersionReaderBuilder()
+                    .Template("application/vnd.dev-habit.hateoas.{version}+json")
+                    .Build());
         }
         )
     .AddMvc();
