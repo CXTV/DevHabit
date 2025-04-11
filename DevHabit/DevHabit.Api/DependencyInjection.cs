@@ -16,6 +16,7 @@ using DevHabit.Api.DTOs.Habits;
 using DevHabit.Api.Entities;
 using DevHabit.Api.Services.Sorting;
 using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 
 namespace DevHabit.Api;
 
@@ -95,15 +96,21 @@ public static class DependencyInjection
 
     }
 
-
+    //数据库上下文服务注册
     public static WebApplicationBuilder AddDatabase(this WebApplicationBuilder builder)
-    {//数据库上下文服务注册
+    {
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options
                 .UseNpgsql(
                     builder.Configuration.GetConnectionString("Database"),
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Application))
+                .UseSnakeCaseNamingConvention());
+
+        builder.Services.AddDbContext<ApplicationIdentityDbContext>(optionsBuilder =>
+            optionsBuilder.UseNpgsql(
+                    builder.Configuration.GetConnectionString("Database"),
+                    contextOptionsBuilder => contextOptionsBuilder.MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Identity))
                 .UseSnakeCaseNamingConvention());
 
         return builder;
@@ -155,5 +162,15 @@ public static class DependencyInjection
         return builder;
     }
 
+
+    //注册身份验证服务
+    public static WebApplicationBuilder AddAuthenticationServices(this WebApplicationBuilder builder)
+    {
+
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationIdentityDbContext>();
+
+        return builder;
+    }
 
 }

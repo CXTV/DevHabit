@@ -9,7 +9,8 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
     public DbSet<Habit> Habits { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<HabitTag> HabitTags { get; set; }
-
+    //添加用户表
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
