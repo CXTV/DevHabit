@@ -152,3 +152,8 @@ D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\System.Linq.Dyn
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Asp.Versioning.Abstractions.dll
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Asp.Versioning.Http.dll
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Asp.Versioning.Mvc.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll

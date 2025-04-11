@@ -72,6 +72,11 @@
               "version": "[11.11.0, )",
               "versionCentrallyManaged": true
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[9.0.3, )",
@@ -152,6 +157,7 @@
             "Bogus": "35.6.2",
             "EFCore.NamingConventions": "9.0.0",
             "FluentValidation.DependencyInjectionExtensions": "11.11.0",
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.4",
             "Microsoft.AspNetCore.JsonPatch": "9.0.3",
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "9.0.3",
             "Microsoft.AspNetCore.OpenApi": "9.0.3",
