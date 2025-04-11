@@ -158,3 +158,11 @@ D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.AspNe
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\System.Text.Json.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Csharp20241101\day0329\DevHabit\DevHabit.Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

@@ -24,6 +24,8 @@ app.UseHttpsRedirection();
 //异常处理中间件注册
 app.UseExceptionHandler();
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

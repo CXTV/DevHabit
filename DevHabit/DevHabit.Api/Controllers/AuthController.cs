@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore;
+using DevHabit.Api.Services;
 
 namespace DevHabit.Api.Controllers;
 
@@ -18,7 +19,8 @@ namespace DevHabit.Api.Controllers;
 public sealed class AuthController(
     UserManager<IdentityUser> userManager,
     ApplicationIdentityDbContext identityDbContext,
-    ApplicationDbContext applicationDbContext
+    ApplicationDbContext applicationDbContext,
+    TokenProvider tokenProvider
     ) : ControllerBase
 {
     [HttpPost("register")]
@@ -58,6 +60,26 @@ public sealed class AuthController(
         //3. 提交事务
         await transaction.CommitAsync();
 
-        return Ok();
+        var tokenRequest = new TokenRequest(identityUser.Id, identityUser.Email);
+        AccessTokensDto accessTokens = tokenProvider.Create(tokenRequest);
+
+        return Ok(accessTokens);
+    }
+
+
+    [HttpPost("login")]
+    public async Task<ActionResult<AccessTokensDto>> Login(LoginUserDto loginUserDto)
+    {
+        IdentityUser? identityUser = await userManager.FindByEmailAsync(loginUserDto.Email);
+
+        if (identityUser is null || !await userManager.CheckPasswordAsync(identityUser, loginUserDto.Password))
+        {
+            return Unauthorized();
+        }
+
+        var tokenRequest = new TokenRequest(identityUser.Id, identityUser.Email!);
+        AccessTokensDto accessTokens = tokenProvider.Create(tokenRequest);
+
+        return Ok(accessTokens);
     }
 }
