@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
 using DevHabit.Api.DTOs.Auth;
+using System.Security.Cryptography;
 
 namespace DevHabit.Api.Services;
 
@@ -48,6 +49,8 @@ public sealed class TokenProvider(IOptions<JwtAuthOptions> options)
 
     private string GenerateRefreshToken()
     {
-        return string.Empty;
+        byte[] randomBytes = RandomNumberGenerator.GetBytes(32);
+
+        return Convert.ToBase64String(randomBytes);
     }
 }
