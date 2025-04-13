@@ -165,6 +165,11 @@ public static class DependencyInjection
         //注册TokenProvider
         builder.Services.AddTransient<TokenProvider>();
 
+        //注册内存缓存
+        builder.Services.AddMemoryCache();
+        //注册UserContext
+        builder.Services.AddScoped<UserContext>();
+
         return builder;
     }
 
@@ -175,7 +180,6 @@ public static class DependencyInjection
 
         builder.Services.AddIdentity<IdentityUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationIdentityDbContext>();
-
 
         builder.Services.Configure<JwtAuthOptions>(builder.Configuration.GetSection("Jwt"));
 

@@ -46,12 +46,4 @@ public static class DatabaseExtensions
             throw;
         }
     }
-
-
-    //public static void SeedInitialDataAsync(this WebApplication app)
-    //{
-
-
-    //}
-
 }
