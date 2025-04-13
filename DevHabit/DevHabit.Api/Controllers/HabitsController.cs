@@ -9,17 +9,16 @@ using DevHabit.Api.Services;
 using DevHabit.Api.Services.Sorting;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-#pragma warning disable CA1862
 
 namespace DevHabit.Api.Controllers;
 
 
 [ApiController]
 [Route("habits")]
+[Authorize(Roles = Roles.Member)]
 [ApiVersion(1.0)]
 [Authorize]
 [Produces(
@@ -43,6 +42,7 @@ public sealed class HabitsController(
     {
         //获取当前用户的Id
         string? userId = await userContext.GetUserIdAsync();
+
         //判断Sort参数是否合法
         if (!sortMappingProvider.ValidateMappings<HabitDto, Habit>(query.Sort))
         {
@@ -138,7 +138,6 @@ public sealed class HabitsController(
     {
 
         string? userId = await userContext.GetUserIdAsync();
-
         if (string.IsNullOrWhiteSpace(userId)) return Unauthorized();
 
         if (!dataShapingService.Validate<HabitWithTagsDto>(query.Fields))
@@ -162,12 +161,13 @@ public sealed class HabitsController(
         ExpandoObject shapedHabitDto = dataShapingService.ShapeData(habit, query.Fields);
 
         //判断是否需要返回链接
-        if (query.Accept == CustomMediaTypeNames.Application.HateoasJson)
+        if (query.IncludeLinks)
         {
             List<LinkDto> links = CreateLinksForHabit(id, query.Fields);
 
             shapedHabitDto.TryAdd("links", links);
         }
+
         return Ok(shapedHabitDto);
 
     }
@@ -204,7 +204,7 @@ public sealed class HabitsController(
 
         ExpandoObject shapedHabitDto = dataShapingService.ShapeData(habit, query.Fields);
 
-        if (query.Accept == CustomMediaTypeNames.Application.HateoasJson)
+        if (query.IncludeLinks)
         {
             List<LinkDto> links = CreateLinksForHabit(id, query.Fields);
 

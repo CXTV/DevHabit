@@ -57,6 +57,21 @@ public sealed class AuthController(
             );
         }
 
+        //添加角色，并且判断
+        IdentityResult addToRoleResult = await userManager.AddToRoleAsync(identityUser, Roles.Member);
+        if (!addToRoleResult.Succeeded)
+        {
+            var extensions = new Dictionary<string, object?>
+            {
+                {
+                    "errors",
+                    addToRoleResult.Errors.ToDictionary(e => e.Code, e => e.Description)
+                }
+            };
+            return Problem("Unable to register user", statusCode: StatusCodes.Status400BadRequest, extensions: extensions);
+        }
+
+        //Dto转实体
         User user = registerUserDto.ToEntity();
 
         user.IdentityId = identityUser.Id;
@@ -64,7 +79,9 @@ public sealed class AuthController(
         await applicationDbContext.SaveChangesAsync();
 
 
-        var tokenRequest = new TokenRequest(identityUser.Id, identityUser.Email);
+        //var tokenRequest = new TokenRequest(identityUser.Id, identityUser.Email);
+        var tokenRequest = new TokenRequest(identityUser.Id, identityUser.Email, [Roles.Member]);
+
         AccessTokensDto accessTokens = tokenProvider.Create(tokenRequest);
 
         var refreshToken = new RefreshToken
@@ -92,8 +109,10 @@ public sealed class AuthController(
         {
             return Unauthorized();
         }
+        //获取角色信息
+        IList<string> roles = await userManager.GetRolesAsync(identityUser);
+        var tokenRequest = new TokenRequest(identityUser.Id, identityUser.Email!, roles);
 
-        var tokenRequest = new TokenRequest(identityUser.Id, identityUser.Email!);
         AccessTokensDto accessTokens = tokenProvider.Create(tokenRequest);
 
         var refreshToken = new RefreshToken
@@ -127,9 +146,11 @@ public sealed class AuthController(
             return Unauthorized();
         }
 
-        var tokenRequest = new TokenRequest(refreshToken.User.Id, refreshToken.User.Email!);
-        AccessTokensDto accessTokens = tokenProvider.Create(tokenRequest);
+        //获取用户信息
+        IList<string> roles = await userManager.GetRolesAsync(refreshToken.User);
+        var tokenRequest = new TokenRequest(refreshToken.User.Id, refreshToken.User.Email!, roles);
 
+        AccessTokensDto accessTokens = tokenProvider.Create(tokenRequest);
         refreshToken.Token = accessTokens.RefreshToken;
         refreshToken.ExpiresAtUtc = DateTime.UtcNow.AddDays(_jwtAuthOptions.RefreshTokenExpirationInDays);
 

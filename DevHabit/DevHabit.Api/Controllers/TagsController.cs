@@ -6,15 +6,13 @@ using DevHabit.Api.DTOs.Tags;
 using DevHabit.Api.Entities;
 using DevHabit.Api.Services;
 using FluentValidation;
-using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace DevHabit.Api.Controllers;
 
-[Authorize]
+[Authorize(Roles = Roles.Member)]
 [ApiController]
 [Route("tags")]
 [Produces(
@@ -76,7 +74,6 @@ public sealed class TagsController(
     }
 
 
-
     [HttpPost]
     public async Task<ActionResult<TagDto>> CreateTag(
         CreateTagDto createTagDto,
@@ -85,10 +82,10 @@ public sealed class TagsController(
     )
     {
         string? userId = await userContext.GetUserIdAsync();
+
         if (string.IsNullOrWhiteSpace(userId)) return Unauthorized();
 
         await validator.ValidateAndThrowAsync(createTagDto);
-
 
         Tag tag = createTagDto.ToEntity(userId);
 
