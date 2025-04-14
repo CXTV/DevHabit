@@ -11,6 +11,8 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
     public DbSet<HabitTag> HabitTags { get; set; }
     //添加用户表
     public DbSet<User> Users { get; set; }
+    //添加GitHubAccessToken表
+    public DbSet<GitHubAccessToken> GitHubAccessTokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

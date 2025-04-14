@@ -21,6 +21,7 @@ using DevHabit.Api.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Net.Http.Headers;
 
 namespace DevHabit.Api;
 
@@ -111,19 +112,20 @@ public static class DependencyInjection
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Application))
                 .UseSnakeCaseNamingConvention());
 
-        builder.Services.AddDbContext<ApplicationIdentityDbContext>(optionsBuilder =>
-            optionsBuilder.UseNpgsql(
+        builder.Services.AddDbContext<ApplicationIdentityDbContext>(options =>
+            options
+                .UseNpgsql(
                     builder.Configuration.GetConnectionString("Database"),
-                    contextOptionsBuilder => contextOptionsBuilder.MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Identity))
+                    npgsqlOptions => npgsqlOptions
+                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Identity))
                 .UseSnakeCaseNamingConvention());
 
         return builder;
     }
 
+    //注册OpenTelemetry
     public static WebApplicationBuilder AddObservability(this WebApplicationBuilder builder)
     {
-
-        //Aspire服务注册
         builder.Services.AddOpenTelemetry()
             .ConfigureResource(resource => resource.AddService(builder.Environment.ApplicationName))
             .WithTracing(tracing => tracing
@@ -136,7 +138,6 @@ public static class DependencyInjection
                 .AddRuntimeInstrumentation())
             .UseOtlpExporter();
 
-        //日志服务注册
         builder.Logging.AddOpenTelemetry(options =>
         {
             options.IncludeScopes = true;
@@ -169,6 +170,23 @@ public static class DependencyInjection
         builder.Services.AddMemoryCache();
         //注册UserContext
         builder.Services.AddScoped<UserContext>();
+
+        //注册github外部服务
+        builder.Services.AddScoped<GitHubAccessTokenService>();
+        builder.Services.AddTransient<GitHubService>();
+        builder.Services.AddHttpClient("github")
+            .ConfigureHttpClient(client =>
+            {
+                client.BaseAddress = new Uri("https://api.github.com");
+                client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("DevHabit", "1.0"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github+json"));
+            });
+
+
+        // Encryption
+        builder.Services.Configure<EncryptionOptions>(builder.Configuration.GetSection("Encryption"));
+
+        builder.Services.AddTransient<EncryptionService>();
 
         return builder;
     }
