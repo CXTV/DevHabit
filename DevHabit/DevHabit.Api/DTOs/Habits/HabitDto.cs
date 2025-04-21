@@ -22,7 +22,7 @@ public sealed record HabitDto: ILinksResponse
     public required DateTime CreatedAtUtc { get; init; }
     public DateTime? UpdatedAtUtc { get; init; }
     public DateTime? LastCompletedAtUtc { get; init; }
-
+    //hateoas
     public List<LinkDto> Links { get;set; }
 }
 

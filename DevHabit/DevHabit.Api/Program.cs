@@ -1,5 +1,6 @@
 using DevHabit.Api.Extensions;
 using DevHabit.Api;
+using DevHabit.Api.Settings;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,9 @@ app.UseHttpsRedirection();
 
 //异常处理中间件注册
 app.UseExceptionHandler();
+
+app.UseCors(CorsOptions.PolicyName);
+
 
 app.UseAuthentication();
 app.UseAuthorization();

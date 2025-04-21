@@ -8,6 +8,7 @@ using DevHabit.Api.Entities;
 using DevHabit.Api.Services;
 using DevHabit.Api.Services.Sorting;
 using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -60,7 +61,7 @@ public sealed class HabitsController(
                 detail: $"The provided data shaping fields aren't valid: '{query.Fields}'");
         }
 
-
+        //全部小写，去空格
         query.Search = query.Search?.Trim().ToLower();
 
         //获取SORT Dto和Entity的映射关系
@@ -230,7 +231,14 @@ public sealed class HabitsController(
             return Unauthorized();
         }
 
-        await validator.ValidateAndThrowAsync(createHabitDto);
+        //await validator.ValidateAndThrowAsync(createHabitDto);
+
+        ValidationResult validationResult = await validator.ValidateAsync(createHabitDto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.ToDictionary());
+        }
 
         Habit habit = createHabitDto.ToEntity(userId);
 

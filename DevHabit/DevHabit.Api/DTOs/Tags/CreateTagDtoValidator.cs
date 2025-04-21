@@ -1,9 +1,6 @@
-﻿using DevHabit.Api.DTOs.Habits;
-using DevHabit.Api.Entities;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace DevHabit.Api.DTOs.Tags;
-
 
 public sealed class CreateTagDtoValidator : AbstractValidator<CreateTagDto>
 {

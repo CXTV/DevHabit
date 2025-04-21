@@ -81,7 +81,7 @@ public static class DependencyInjection
         return builder;
     }
 
-    //错误处理配置
+    //全局错误处理配置
     public static WebApplicationBuilder AddErrorHandling(this WebApplicationBuilder builder)
     {
         //配置ProblemDetails
@@ -223,5 +223,21 @@ public static class DependencyInjection
 
         return builder;
     }
+    //Cors
+    public static WebApplicationBuilder AddCorsPolicy(this WebApplicationBuilder builder)
+    {
+        CorsOptions corsOptions = builder.Configuration.GetSection(CorsOptions.SectionName).Get<CorsOptions>()!;
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(CorsOptions.PolicyName, policy =>
+            {
+                policy.WithOrigins(corsOptions.AllowedOrigins)
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+
+        return builder;
+    }
 }
