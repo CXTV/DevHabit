@@ -13,6 +13,10 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
     public DbSet<User> Users { get; set; }
     //添加GitHubAccessToken表
     public DbSet<GitHubAccessToken> GitHubAccessTokens { get; set; }
+    //Entry表
+    public DbSet<Entry> Entries { get; set; }
+    public DbSet<EntryImportJob> EntryImportJobs { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

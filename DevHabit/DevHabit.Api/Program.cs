@@ -10,7 +10,8 @@ builder
     .AddDatabase()
     .AddObservability()
     .AddApplicationServices()
-    .AddAuthenticationServices();
+    .AddAuthenticationServices()
+    .AddCorsPolicy();
 
 WebApplication app = builder.Build();
 
@@ -26,9 +27,7 @@ app.UseHttpsRedirection();
 
 //异常处理中间件注册
 app.UseExceptionHandler();
-
 app.UseCors(CorsOptions.PolicyName);
-
 
 app.UseAuthentication();
 app.UseAuthorization();

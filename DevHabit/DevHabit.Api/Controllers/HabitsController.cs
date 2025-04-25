@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace DevHabit.Api.Controllers;
 
 
@@ -49,16 +50,16 @@ public sealed class HabitsController(
         {
             return Problem(
                 statusCode: StatusCodes.Status400BadRequest,
-                detail: $"The provided sort parameter isn't valid: '{query.Sort}'");
+                detail: ErrorMessages.InvalidSort(query.Sort));
         }
-
 
         //判断前端传入的Fields参数是否合法
         if (!dataShapingService.Validate<HabitDto>(query.Fields))
         {
             return Problem(
                 statusCode: StatusCodes.Status400BadRequest,
-                detail: $"The provided data shaping fields aren't valid: '{query.Fields}'");
+                //detail: $"The provided data shaping fields aren't valid: '{query.Fields}'");
+                detail: ErrorMessages.InvalidFields(query.Sort));
         }
 
         //全部小写，去空格

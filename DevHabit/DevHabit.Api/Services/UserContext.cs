@@ -20,7 +20,7 @@ public sealed class UserContext(
     {
         //通过自定义的扩展方法获取当前用户的IdentityId
         string? identityId = httpContextAccessor.HttpContext?.User.GetIdentityId();
-
+        //无用户信息则返回null
         if (identityId is null)
         {
             return null;

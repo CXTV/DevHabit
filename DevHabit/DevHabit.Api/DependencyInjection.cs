@@ -223,6 +223,7 @@ public static class DependencyInjection
 
         return builder;
     }
+
     //Cors
     public static WebApplicationBuilder AddCorsPolicy(this WebApplicationBuilder builder)
     {
