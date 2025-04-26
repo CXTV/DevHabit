@@ -22,6 +22,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Net.Http.Headers;
+using DevHabit.Api.Jobs;
+using Refit;
+using Quartz;
+
 
 namespace DevHabit.Api;
 
@@ -74,9 +78,11 @@ public static class DependencyInjection
             )
             .AddMvc();
 
-
         //OpenApi
         builder.Services.AddOpenApi();
+
+        //缓存
+        builder.Services.AddResponseCaching();
 
         return builder;
     }
@@ -174,6 +180,10 @@ public static class DependencyInjection
         //注册github外部服务
         builder.Services.AddScoped<GitHubAccessTokenService>();
         builder.Services.AddTransient<GitHubService>();
+
+        // Global Resilience Handler
+        builder.Services.AddHttpClient().ConfigureHttpClientDefaults(b => b.AddStandardResilienceHandler());
+
         builder.Services.AddHttpClient("github")
             .ConfigureHttpClient(client =>
             {
@@ -182,11 +192,26 @@ public static class DependencyInjection
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github+json"));
             });
 
+        builder.Services.AddTransient<DelayHandler>();
+
+        builder.Services
+            .AddRefitClient<IGitHubApi>(new RefitSettings
+            {
+                ContentSerializer = new NewtonsoftJsonContentSerializer()
+            })
+            .ConfigureHttpClient(client => client.BaseAddress = new Uri("https://api.github.com"));
+
 
         // Encryption
         builder.Services.Configure<EncryptionOptions>(builder.Configuration.GetSection("Encryption"));
-
         builder.Services.AddTransient<EncryptionService>();
+
+        // GitHub Automation
+        builder.Services.Configure<GitHubAutomationOptions>
+            (builder.Configuration.GetSection(GitHubAutomationOptions.SectionName));
+
+        //Add ETag store
+        builder.Services.AddSingleton<InMemoryETagStore>();
 
         return builder;
     }
@@ -220,6 +245,34 @@ public static class DependencyInjection
             });
 
         builder.Services.AddAuthorization();
+
+        return builder;
+    }
+
+    //Quartz服务注册
+    public static WebApplicationBuilder AddBackgroundJobs(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddQuartz(q =>
+        {
+            q.AddJob<GitHubAutomationSchedulerJob>(options => options.WithIdentity("github-automation-scheduler"));
+
+            q.AddTrigger(option => option
+                .ForJob("github-automation-scheduler")
+                .WithIdentity("github-automation-scheduler-trigger")
+                .WithSimpleSchedule(schedule =>
+                {
+                    GitHubAutomationOptions settings = builder.Configuration
+                        .GetSection(GitHubAutomationOptions.SectionName)
+                        .Get<GitHubAutomationOptions>()!;
+
+                    schedule.WithIntervalInMinutes(settings.ScanIntervalInMinutes)
+                        .RepeatForever();
+                })
+            );
+        });
+
+        builder.Services.AddQuartzHostedService(options =>
+            options.WaitForJobsToComplete = true);
 
         return builder;
     }

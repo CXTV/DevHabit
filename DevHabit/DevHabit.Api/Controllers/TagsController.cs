@@ -44,7 +44,7 @@ public sealed class TagsController(
             Items = tags
         };
 
-        if (acceptHeader.IncludeLinks) habitsCollectionDto.Links = CreateLinksForTags();
+        if (acceptHeader.IncludeLinks) habitsCollectionDto.Links = CreateLinksForTags(tags.Count);
 
 
         return Ok(habitsCollectionDto);
@@ -108,23 +108,50 @@ public sealed class TagsController(
 
 
 
+    //[HttpPut("{id}")]
+    //public async Task<ActionResult> UpdateTag(string id, UpdateTagDto updateTagDto)
+    //{
+    //    string? userId = await userContext.GetUserIdAsync();
+    //    if (string.IsNullOrWhiteSpace(userId)) return Unauthorized();
+
+    //    Tag? tag = await dbContext.Tags.FirstOrDefaultAsync(h => h.Id == id);
+    //    if (tag is null)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    tag.UpdateFromDto(updateTagDto);
+    //    await dbContext.SaveChangesAsync();
+
+    //    return NoContent();
+    //}
+
+
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateTag(string id, UpdateTagDto updateTagDto)
+    public async Task<ActionResult> UpdateTag(string id, UpdateTagDto dto, InMemoryETagStore eTagStore)
     {
         string? userId = await userContext.GetUserIdAsync();
-        if (string.IsNullOrWhiteSpace(userId)) return Unauthorized();
+        if (string.IsNullOrWhiteSpace(userId))
+        {
+            return Unauthorized();
+        }
 
-        Tag? tag = await dbContext.Tags.FirstOrDefaultAsync(h => h.Id == id);
+        Tag? tag = await dbContext.Tags.FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+
         if (tag is null)
         {
             return NotFound();
         }
 
-        tag.UpdateFromDto(updateTagDto);
+        tag.UpdateFromDto(dto);
+
         await dbContext.SaveChangesAsync();
+        //传入值给上面的SetStore方法,用于设置ETag的值
+        eTagStore.SetETag(Request.Path.Value!, tag.ToDto());
 
         return NoContent();
     }
+
 
 
     [HttpDelete("{id}")]
@@ -146,14 +173,17 @@ public sealed class TagsController(
     }
 
 
-
-    private List<LinkDto> CreateLinksForTags()
+    private List<LinkDto> CreateLinksForTags(int tagsCount)
     {
         List<LinkDto> links =
         [
             linkService.Create(nameof(GetTags), "self", HttpMethods.Get),
-            linkService.Create(nameof(CreateTag), "create", HttpMethods.Post)
         ];
+
+        if (tagsCount <=5)
+        {
+            links.Add(linkService.Create(nameof(CreateTag), "create", HttpMethods.Post));
+        }
 
         return links;
     }

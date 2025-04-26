@@ -104,6 +104,11 @@
               "version": "[9.0.4, )",
               "versionCentrallyManaged": true
             },
+            "Microsoft.Extensions.Http.Resilience": {
+              "target": "Package",
+              "version": "[9.4.0, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.21.0, )",
@@ -144,6 +149,21 @@
               "version": "[1.11.1, )",
               "versionCentrallyManaged": true
             },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.14.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Refit.HttpClientFactory": {
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Refit.Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
             "SonarAnalyzer.CSharp": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -168,6 +188,7 @@
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "9.0.3",
             "Microsoft.AspNetCore.OpenApi": "9.0.3",
             "Microsoft.EntityFrameworkCore.Tools": "9.0.4",
+            "Microsoft.Extensions.Http.Resilience": "9.4.0",
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
             "Newtonsoft.Json": "13.0.3",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
@@ -177,6 +198,9 @@
             "OpenTelemetry.Instrumentation.AspNetCore": "1.11.1",
             "OpenTelemetry.Instrumentation.Http": "1.11.1",
             "OpenTelemetry.Instrumentation.Runtime": "1.11.1",
+            "Quartz.Extensions.Hosting": "3.14.0",
+            "Refit.HttpClientFactory": "8.0.0",
+            "Refit.Newtonsoft.Json": "8.0.0",
             "SonarAnalyzer.CSharp": "10.7.0.110445",
             "System.Linq.Dynamic.Core": "1.6.0.2"
           },
