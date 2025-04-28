@@ -13,7 +13,8 @@ builder
     .AddApplicationServices()
     .AddAuthenticationServices()
     //.AddBackgroundJobs()
-    .AddCorsPolicy();
+    .AddCorsPolicy()
+    .AddRateLimiting();
 
 WebApplication app = builder.Build();
 
@@ -36,6 +37,8 @@ app.UseResponseCaching();
 app.UseAuthentication();
 
 app.UseAuthorization();
+//添加速度限制，这个位置可以更改
+app.UseRateLimiter();
 
 app.UseMiddleware<ETagMiddleware>();
 

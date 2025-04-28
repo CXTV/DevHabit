@@ -1,6 +1,5 @@
 ﻿namespace DevHabit.Api.Services;
 
-
 public sealed class DelayHandler : DelegatingHandler
 {
     protected override async Task<HttpResponseMessage> SendAsync(

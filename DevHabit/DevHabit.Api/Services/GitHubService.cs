@@ -6,6 +6,7 @@ namespace DevHabit.Api.Services;
 
 public sealed class GitHubService(IHttpClientFactory httpClientFactory, ILogger<GitHubService> logger)
 {
+
     public async Task<GitHubUserProfileDto?> GetUserProfileAsync(
         string accessToken,
         CancellationToken cancellationToken = default)
@@ -47,6 +48,7 @@ public sealed class GitHubService(IHttpClientFactory httpClientFactory, ILogger<
         return JsonConvert.DeserializeObject<List<GitHubEventDto>>(content);
     }
 
+    //创建一个专门用来访问 GitHub API 的 HttpClient，并且带上授权的 Token
     private HttpClient CreateGitHubClient(string accessToken)
     {
         HttpClient client = httpClientFactory.CreateClient("github");

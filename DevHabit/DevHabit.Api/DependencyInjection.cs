@@ -22,9 +22,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Net.Http.Headers;
+using DevHabit.Api.Extensions;
 using DevHabit.Api.Jobs;
+using Microsoft.Extensions.Http.Resilience;
+using Polly;
 using Refit;
 using Quartz;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Threading.RateLimiting;
 
 
 namespace DevHabit.Api;
@@ -184,6 +189,12 @@ public static class DependencyInjection
         // Global Resilience Handler
         builder.Services.AddHttpClient().ConfigureHttpClientDefaults(b => b.AddStandardResilienceHandler());
 
+        //注册RefitGitHubService
+        builder.Services.AddTransient<RefitGitHubService>();
+
+        // Global Resilience Handler
+        builder.Services.AddHttpClient().ConfigureHttpClientDefaults(b => b.AddStandardResilienceHandler());
+
         builder.Services.AddHttpClient("github")
             .ConfigureHttpClient(client =>
             {
@@ -192,6 +203,7 @@ public static class DependencyInjection
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github+json"));
             });
 
+        //添加延迟处理器
         builder.Services.AddTransient<DelayHandler>();
 
         builder.Services
@@ -199,8 +211,43 @@ public static class DependencyInjection
             {
                 ContentSerializer = new NewtonsoftJsonContentSerializer()
             })
-            .ConfigureHttpClient(client => client.BaseAddress = new Uri("https://api.github.com"));
+            .ConfigureHttpClient(client => client.BaseAddress = new Uri("https://api.github.com"))
+            .AddHttpMessageHandler<DelayHandler>();
 
+
+            //.InternalRemoveAllResilienceHandlers()
+            //.AddResilienceHandler("custom", pipeline =>
+            //{
+            //    pipeline.AddTimeout(TimeSpan.FromSeconds(5)); //设置超时时间
+
+        //    //最多重试 3 次，在重试时间上加随机抖动，防止所有请求同时重试，造成雪崩
+        //    pipeline.AddRetry(new HttpRetryStrategyOptions //重试策略
+        //    {
+        //        MaxRetryAttempts = 3,
+        //        BackoffType = DelayBackoffType.Exponential,
+        //        UseJitter = true,
+        //        Delay = TimeSpan.FromSeconds(0.5)
+        //    });
+
+        //    //每 10 秒统计一次请求情况，如果 90% 的请求都失败了，触发熔断，熔断后暂停 5 秒，之后再试着恢复
+        //    pipeline.AddCircuitBreaker(new HttpCircuitBreakerStrategyOptions //断路器策略
+        //    {
+        //        SamplingDuration = TimeSpan.FromSeconds(10),
+        //        FailureRatio = 0.9,
+        //        MinimumThroughput = 5,
+        //        BreakDuration = TimeSpan.FromSeconds(5)
+        //    });
+
+        //    pipeline.AddTimeout(TimeSpan.FromSeconds(1));
+        //});
+
+        //IGitHubApi服务注册
+        builder.Services
+            .AddRefitClient<IGitHubApi>(new RefitSettings
+            {
+                ContentSerializer = new NewtonsoftJsonContentSerializer()
+            })
+            .ConfigureHttpClient(client => client.BaseAddress = new Uri("https://api.github.com"));
 
         // Encryption
         builder.Services.Configure<EncryptionOptions>(builder.Configuration.GetSection("Encryption"));
@@ -289,6 +336,68 @@ public static class DependencyInjection
                 policy.WithOrigins(corsOptions.AllowedOrigins)
                     .AllowAnyHeader()
                     .AllowAnyMethod();
+            });
+        });
+
+        return builder;
+    }
+
+    //限流
+    public static WebApplicationBuilder AddRateLimiting(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddRateLimiter(options =>
+        {
+            //设置全局的限流器,当限流触发（请求太多被拒绝时），返回 HTTP 429 状态码，标准的「请求过多」
+            options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
+            options.OnRejected = async (context, token) =>
+            {
+                if (context.Lease.TryGetMetadata(MetadataName.RetryAfter, out TimeSpan retryAfter))
+                {
+                    context.HttpContext.Response.Headers.RetryAfter = $"{retryAfter.TotalSeconds}";
+
+                    ProblemDetailsFactory problemDetailsFactory = context.HttpContext.RequestServices
+                        .GetRequiredService<ProblemDetailsFactory>();
+
+                    Microsoft.AspNetCore.Mvc.ProblemDetails problemDetails = problemDetailsFactory
+                        .CreateProblemDetails(
+                            context.HttpContext,
+                            StatusCodes.Status429TooManyRequests,
+                            title: "Too Many Requests",
+                            detail: $"Too many requests. Please try again in {retryAfter.TotalSeconds} seconds.");
+
+                    await context.HttpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken: token);
+                }
+            };
+
+            options.AddPolicy("default", httpContext =>
+            {
+                //string identityId = httpContext.User.Identity?.Name ?? string.Empty; // TO TEST RATE LIMITING
+                string identityId = httpContext.User.GetIdentityId() ?? string.Empty;
+
+                if (!string.IsNullOrWhiteSpace(identityId))
+                {
+                    return RateLimitPartition.GetTokenBucketLimiter(
+                        identityId,
+                        _ =>
+                            new TokenBucketRateLimiterOptions
+                            {
+                                TokenLimit = 100,
+                                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+                                QueueLimit = 5,
+                                ReplenishmentPeriod = TimeSpan.FromMinutes(1),
+                                TokensPerPeriod = 25
+                            });
+                }
+
+                return RateLimitPartition.GetFixedWindowLimiter(
+                    "anonymous",
+                    _ =>
+                    new FixedWindowRateLimiterOptions
+                    {
+                        PermitLimit = 5,
+                        Window = TimeSpan.FromMinutes(1)
+                    });
             });
         });
 

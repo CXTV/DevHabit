@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\Csharp20241101\\day0329\\DevHabit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{894E9600-2291-4119-8AC7-544272129390}|DevHabit.UnitTests\\DevHabit.UnitTests.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.unittests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{894E9600-2291-4119-8AC7-544272129390}|DevHabit.UnitTests\\DevHabit.UnitTests.csproj|solutionrelative:devhabit.unittests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D06321B-4860-4A41-8A3F-41E182F68887}|Solution Items{6D06321B-4860-4A41-8A3F-41E182F68887}|D:\\Csharp20241101\\day0329\\DevHabit\\Directory.Packages.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{6D06321B-4860-4A41-8A3F-41E182F68887}|Solution Items{6D06321B-4860-4A41-8A3F-41E182F68887}|solutionrelative:Directory.Packages.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|d:\\csharp20241101\\day0329\\devhabit\\devhabit.api\\devhabit.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3508D711-1BB3-4228-AF2B-DF6FCA2DDE94}|DevHabit.Api\\DevHabit.Api.csproj|solutionrelative:devhabit.api\\devhabit.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +31,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Program.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\Program.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\Program.cs",
-              "RelativeToolTip": "DevHabit.Api\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAIA9wBEAAAAlAAAAAAAAAA==",
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.UnitTests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "DevHabit.UnitTests\\UnitTest1.cs",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.UnitTests\\UnitTest1.cs",
+              "RelativeToolTip": "DevHabit.UnitTests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T11:29:12.008Z",
+              "WhenOpened": "2025-04-28T06:50:03.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "DevHabit.Api\\DependencyInjection.cs",
-              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DependencyInjection.cs",
-              "RelativeToolTip": "DevHabit.Api\\DependencyInjection.cs",
-              "ViewState": "AgIAAPgAAAAAAAAAAAA0wAwBAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T11:20:58.69Z",
+              "Title": "Directory.Packages.props",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\Directory.Packages.props",
+              "RelativeDocumentMoniker": "Directory.Packages.props",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\Directory.Packages.props",
+              "RelativeToolTip": "Directory.Packages.props",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB4AAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-04-28T06:38:26.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DevHabit.Api",
+              "DocumentMoniker": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DevHabit.Api.csproj",
+              "RelativeDocumentMoniker": "DevHabit.Api\\DevHabit.Api.csproj",
+              "ToolTip": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DevHabit.Api.csproj",
+              "RelativeToolTip": "DevHabit.Api\\DevHabit.Api.csproj",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-28T06:38:14.383Z",
               "EditorCaption": ""
             }
           ]

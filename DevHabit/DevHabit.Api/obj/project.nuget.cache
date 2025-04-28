@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VsBpYmT5KeM=",
+  "dgSpecHash": "14s1bZ1NIdk=",
   "success": true,
   "projectFilePath": "D:\\Csharp20241101\\day0329\\DevHabit\\DevHabit.Api\\DevHabit.Api.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\HFY\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\asp.versioning.mvc\\8.1.0\\asp.versioning.mvc.8.1.0.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\bogus\\35.6.2\\bogus.35.6.2.nupkg.sha512",
+    "C:\\Users\\HFY\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\efcore.namingconventions\\9.0.0\\efcore.namingconventions.9.0.0.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\HFY\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",

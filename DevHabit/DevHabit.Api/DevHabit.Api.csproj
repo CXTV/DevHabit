@@ -7,6 +7,7 @@
 	<ItemGroup>
 		<PackageReference Include="Asp.Versioning.Mvc" />
 		<PackageReference Include="Bogus" />
+		<PackageReference Include="CsvHelper" />
 		<PackageReference Include="EFCore.NamingConventions" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
@@ -32,8 +33,11 @@
 		<PackageReference Include="Refit.HttpClientFactory" />
 		<PackageReference Include="Refit.Newtonsoft.Json" />
 		<PackageReference Include="System.Linq.Dynamic.Core" />
+
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="DTOs\EntryImports\" />
+		<InternalsVisibleTo Include="DevHabit.Api.Tests" />
 	</ItemGroup>
+
+
 </Project>
