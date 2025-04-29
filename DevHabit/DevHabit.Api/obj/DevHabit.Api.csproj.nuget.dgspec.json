@@ -223,6 +223,7 @@
             "SonarAnalyzer.CSharp": "10.8.0.113526",
             "System.Linq.Dynamic.Core": "1.6.2",
             "Testcontainers.PostgreSql": "4.4.0",
+            "WireMock.Net": "1.7.4",
             "xunit": "2.9.3",
             "xunit.runner.visualstudio": "3.0.2"
           },

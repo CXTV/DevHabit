@@ -4,6 +4,7 @@ using DevHabit.Api.Database;
 using DevHabit.Api.DTOs.Auth;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using WireMock.Server;
 
 namespace DevHabit.IntegrationTests.Infrastructure;
 
@@ -12,6 +13,10 @@ public abstract class IntegrationTestFixture(DevHabitWebAppFactory factory) : IC
 {
     //1.定义了一个缓存的 HttpClient，用于存储登录过的、有认证 token 的客户端
     private HttpClient? _authorizedClient;
+
+
+    public WireMockServer WireMockServer => factory.GetWireMockServer();
+
 
     //2.创建一个普通的（未登录的）HttpClient
     public HttpClient CreateClient() => factory.CreateClient();
